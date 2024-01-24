@@ -13,13 +13,18 @@ const Nav = () => {
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
+          {/* Header Logo */}
           <Link to="/">
             <img src={logo} alt="react commerce" />
           </Link>
+
+          {/* Mobile menu */}
           <button type="button" className="nav-toggle">
             <FaBars />
           </button>
         </div>
+
+        {/* Navigation links */}
         <ul className="nav-links">
           {links.map((link) => {
             const { id, text, url } = link;
@@ -30,6 +35,9 @@ const Nav = () => {
             );
           })}
         </ul>
+
+        {/* Cart buttons */}
+        <CartButtons />
       </div>
     </NavContainer>
   );
