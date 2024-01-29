@@ -9,6 +9,9 @@ import CartButtons from "./CartButtons";
 import { useUserContext } from "../context/user_context";
 
 const Sidebar = () => {
+  // dispatch products
+  const data = useProductsContext();
+  console.log(data);
   // toggle sidebar button
   const isOpen = false;
   return (
