@@ -13,10 +13,19 @@ import {
   GET_SINGLE_PRODUCT_ERROR,
 } from "../actions";
 
-// useReducer hooks 1.0 App.js
+// fetch products complete
 const initialState = {
   isSidebarOpen: false,
+  products_loading: false,
+  products_error: false,
+  products: [],
+  feature_products: [],
 };
+
+// // useReducer hooks 1.0 App.js
+// const initialState = {
+//   isSidebarOpen: false,
+// };
 
 const ProductsContext = React.createContext();
 
@@ -36,8 +45,16 @@ export const ProductsProvider = ({ children }) => {
 
   // fetch products from constants.js
   const fetchProducts = async (url) => {
-    const res = await axios.get(url);
-    console.log(res);
+    // fetch products complete
+    dispatch({ type: GET_PRODUCTS_BEGIN });
+    try {
+      const res = await axios.get(url);
+      const products = res.data;
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
+      console.log(res);
+    } catch (error) {
+      dispatch({ type: GET_PRODUCTS_ERROR });
+    }
   };
   useEffect(() => {
     fetchProducts(url);
