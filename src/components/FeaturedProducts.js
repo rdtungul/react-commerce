@@ -7,12 +7,17 @@ import Loading from "./Loading";
 import Product from "./Product";
 
 const FeaturedProducts = () => {
+<<<<<<< HEAD
   // featured products configuration
+=======
+  // featured products configurations
+>>>>>>> ef318a96812ee47407756273fbad87625f487842
   const {
     products_loading: loading,
     products_error: error,
     featured_products: featured,
   } = useProductsContext();
+<<<<<<< HEAD
   if (loading) {
     return <Loading />;
   }
@@ -20,6 +25,17 @@ const FeaturedProducts = () => {
     return <Error />;
   }
 
+=======
+
+  if (loading) {
+    // this is the Loading.js component
+    return <Loading />;
+  }
+  if (error) {
+    // this is the Error.js component
+    return <Error />;
+  }
+>>>>>>> ef318a96812ee47407756273fbad87625f487842
   return (
     <Wrapper className="section">
       <div className="title">
@@ -28,7 +44,11 @@ const FeaturedProducts = () => {
       </div>
       <div className="section-center featured">
         {featured.slice(0, 3).map((product) => {
+<<<<<<< HEAD
           return <Product key={product.id} {...product} />;
+=======
+          return <Product key={product.id} {...product}></Product>;
+>>>>>>> ef318a96812ee47407756273fbad87625f487842
         })}
       </div>
     </Wrapper>
